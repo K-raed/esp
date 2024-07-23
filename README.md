@@ -6,9 +6,6 @@
 (See the README.md file in the upper level 'examples' directory for more information about examples.)
 
 This example demonstrates how to blink a LED by using the GPIO driver or using the [led_strip](https://components.espressif.com/component/espressif/led_strip) library if the LED is addressable e.g. [WS2812](https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf). The `led_strip` library is installed via [component manager](main/idf_component.yml).
-
-
-
 ## How to Use Example
 
 Before project configuration and build, be sure to set the correct chip target using `idf.py set-target <chip_name>`.
