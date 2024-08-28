@@ -65,7 +65,7 @@ The pixel number indicates the pixel position in the LED strip. For a single LED
 
 ## Troubleshooting
 
-x
+xx
 
 
 * If the LED isn't blinking, check the GPIO or the LED type selection in the `Example Configuration` menu.
