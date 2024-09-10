@@ -1,0 +1,82 @@
+pipeline {
+    agent any
+    
+    environment {
+        IDF_PATH = '/home/raed/esp/esp-idf'
+        IDF_TOOLS_PATH = '/home/raed/.espressif'
+        NEXUS_URL = 'http://192.168.33.3:8081/repository/RaedRepo/'
+    }
+    
+    stages {
+        
+        stage('clear container') {
+            steps {
+                script {
+                    sh'''
+                     docker rm ESPcontainer -f
+                     '''
+                }
+            }
+        } 
+        stage('clean workspace') {
+            steps {
+                script {
+                    sh'''
+                     sudo rm -rf ./*
+                     '''
+                }
+            }
+        } 
+        stage('GIT') {
+            steps {
+                echo 'Pulling from GIT';
+                git branch: 'master',
+                url: 'https://github.com/K-raed/esp'
+            }   
+        }
+         stage('run container') {
+            steps {
+                script {
+                    sh'''
+                     docker run -itd --name ESPcontainer -v ~/workspace/artifact-test:/project espressif/idf:release-v5.0
+                    '''
+                }
+            }
+        }     
+       stage('set-up & build') {
+            steps {
+                script {
+                    sh'''
+                     docker exec ESPcontainer sh -c "cd /project && . /opt/esp/idf/export.sh && idf.py build"
+                     '''
+                }
+            }
+        } 
+    
+
+        stage('nexus') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials-id', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                        sh '''
+                        docker exec ESPcontainer sh -c "curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
+                            --upload-file /project/build/blink.bin \
+                            ${NEXUS_URL}blink.bin"
+                        '''
+                }       }
+            }
+        } 
+    }
+    
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+        success {
+            echo 'Pipeline succeeded.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
