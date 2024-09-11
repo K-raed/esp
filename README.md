@@ -8,6 +8,8 @@ This example demonstrates how to blink a LED by using the GPIO driver or using t
 
 Before project configuration and build, be sure to set the correct chip target using `idf.py set-target <chip_name>`.
 
+
+
 ### Hardware Required
 
 * A development board with normal LED or addressable LED on-board (e.g., ESP32-S3-DevKitC, ESP32-C6-DevKitC etc.)
