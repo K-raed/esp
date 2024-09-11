@@ -54,8 +54,7 @@ I (6325) example: Turning the LED OFF!
 I (7325) example: Turning the LED ON!
 I (8325) example: Turning the LED OFF!
 ```
-
-Note: The color order could be different according to the LED model.
+note: The color order could be different according to the LED model.
 
 The pixel number indicates the pixel position in the LED strip. For a single LED, use 0.
 
