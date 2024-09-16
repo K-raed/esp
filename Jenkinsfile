@@ -5,6 +5,9 @@ pipeline {
         IDF_PATH = '/home/raed/esp/esp-idf'
         IDF_TOOLS_PATH = '/home/raed/.espressif'
         NEXUS_URL = 'http://192.168.33.3:8081/repository/RaedRepo/'
+
+        SONAR_HOST_URL = 'http://192.168.33.3:9000'
+        SONAR_TOKEN = 'sqp_ac4e7107d10c6b89a836534e09956899eda9eef7'
     }
     
     stages {
@@ -36,13 +39,18 @@ pipeline {
         }
         stage('MVN SONARQUBE'){
         steps{
-           sh'''      
-            sonar-scanner \
-              -Dsonar.projectKey=proj1 \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=http://192.168.33.3:9000 \
-              -Dsonar.token=sqp_ac4e7107d10c6b89a836534e09956899eda9eef7
-             '''
+            script{
+                // Configure SonarQube
+                    def scannerHome = tool 'sonarqube'
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=proj1 \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=${SONAR_HOST_URL} \
+                            -Dsonar.login=${SONAR_TOKEN}"
+                    }
+            }
+            
                 }
          }
          stage('run container') {
