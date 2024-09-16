@@ -37,7 +37,6 @@ pipeline {
         stage('sonar test'){
         steps{
             script {
-                    withCredentials([string(credentialsId: 'sonar-admin', variable: 'sonar-admin')]) {
                         sh '''
                             sonar-scanner \
                             -Dsonar.projectKey=proj1 \
@@ -45,7 +44,7 @@ pipeline {
                             -Dsonar.host.url=http://localhost:9000 \
                             -Dsonar.login=${sonar-admin}
                         '''
-                    }
+                    
                 }
             }
          }
