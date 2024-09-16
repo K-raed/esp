@@ -8,7 +8,7 @@ pipeline {
     }
     
     stages {
-        
+       /* 
         stage('clear container') {
             steps {
                 script {
@@ -26,7 +26,7 @@ pipeline {
                      '''
                 }
             }
-        } 
+        } */
         stage('GIT') {
             steps {
                 echo 'Pulling from GIT';
