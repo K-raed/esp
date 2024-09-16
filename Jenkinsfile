@@ -37,13 +37,13 @@ pipeline {
         stage('sonar test'){
         steps{
             script {
-                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                    withCredentials([string(credentialsId: 'sonar-admin', variable: 'sonar-admin')]) {
                         sh '''
                             sonar-scanner \
                             -Dsonar.projectKey=proj1 \
                             -Dsonar.sources=. \
                             -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.login=${SONAR_TOKEN}
+                            -Dsonar.login=${sonar-admin}
                         '''
                     }
                 }
