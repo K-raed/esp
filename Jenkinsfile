@@ -8,7 +8,7 @@ pipeline {
     }
     
     stages {
-       /* 
+        
         stage('clear container') {
             steps {
                 script {
@@ -26,7 +26,7 @@ pipeline {
                      '''
                 }
             }
-        } */
+        } 
         stage('GIT') {
             steps {
                 echo 'Pulling from GIT';
@@ -36,18 +36,14 @@ pipeline {
         }
         stage('MVN SONARQUBE'){
         steps{
-        //    script {withCredentials([string(credentialsId: 'sonar-admin', variable: 'sonar-admin')]) {
-                        sh'''
-                        mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar
+           sh'''      
             sonar-scanner \
               -Dsonar.projectKey=proj1 \
               -Dsonar.sources=. \
               -Dsonar.host.url=http://192.168.33.3:9000 \
               -Dsonar.token=sqp_ac4e7107d10c6b89a836534e09956899eda9eef7
-            '''
-          //  }   
+             '''
                 }
-            }
          }
          stage('run container') {
             steps {
