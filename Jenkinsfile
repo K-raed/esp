@@ -37,13 +37,15 @@ pipeline {
         stage('sonar test'){
         steps{
             script {
-                    sh'''
-            sonar-scanner \
-              -Dsonar.projectKey=proj1 \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=http://localhost:9000 \
-              -Dsonar.token=sqp_ac4e7107d10c6b89a836534e09956899eda9eef7
-            '''
+                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                        sh '''
+                            sonar-scanner \
+                            -Dsonar.projectKey=proj1 \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=http://localhost:9000 \
+                            -Dsonar.login=${SONAR_TOKEN}
+                        '''
+                    }
                 }
             }
          }
