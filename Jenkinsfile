@@ -37,13 +37,13 @@ pipeline {
         stage('sonar test'){
         steps{
             script {
-                        sh '''
-                            sonar-scanner \
-                            -Dsonar.projectKey=proj1 \
-                            -Dsonar.sources=. \
-                            -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.login=${sonar-admin}
-                        '''
+                        sh'''
+            sonar-scanner \
+              -Dsonar.projectKey=proj1 \
+              -Dsonar.sources=. \
+              -Dsonar.host.url=http://192.168.33.3:9000 \
+              -Dsonar.token=sqp_ac4e7107d10c6b89a836534e09956899eda9eef7
+            '''
                     
                 }
             }
