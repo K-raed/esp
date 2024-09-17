@@ -37,7 +37,7 @@ pipeline {
                 url: 'https://github.com/K-raed/esp'
             }   
         }
-        stage('MVN SONARQUBE'){
+        stage('SONARQUBE'){
         steps{
             script{
                 // Configure SonarQube
