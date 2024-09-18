@@ -12,7 +12,7 @@ pipeline {
     
     stages {
         
-        stage('clear container') {
+        stage('Clear Container') {
             steps {
                 script {
                     sh'''
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         } 
-        stage('clean workspace') {
+        stage('Clean Workspace') {
             steps {
                 script {
                     sh'''
@@ -53,7 +53,7 @@ pipeline {
             
                 }
          }
-         stage('run container') {
+         stage('Run Container') {
             steps {
                 script {
                     sh'''
@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         }     
-       stage('set-up & build') {
+       stage('Set-up & Build') {
             steps {
                 script {
                     sh'''
@@ -73,7 +73,7 @@ pipeline {
         } 
     
 
-        stage('nexus') {
+        stage('NEXUS') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-credentials-id', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
