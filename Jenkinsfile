@@ -85,6 +85,13 @@ pipeline {
                 }       }
             }
         } 
+        stage ('MQTT'){
+            steps {
+                script {
+                  sh 'mosquitto_pub -h 07bfd16103b24e65b1143ae311bf7a31.s1.eu.hivemq.cloud -p 8883 -u raedkorbi -P @eNRri#DvGv4Ah9 -t fota -m 'new firmware is ready to upload''  
+                }
+            }
+        }
     }
     
     post {
