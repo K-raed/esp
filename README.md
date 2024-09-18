@@ -10,6 +10,7 @@ Before project configuration and build, be sure to set the correct chip target u
 
 ### Hardware Required
 
+
 * A development board with normal LED or addressable LED on-board (e.g., ESP32-S3-DevKitC, ESP32-C6-DevKitC etc.)
 * A USB cable for Power supply and programming
 
