@@ -1,11 +1,9 @@
 pipeline {
     agent any
-    
     environment {
         IDF_PATH = '/home/raed/esp/esp-idf'
         IDF_TOOLS_PATH = '/home/raed/.espressif'
         NEXUS_URL = 'http://192.168.33.3:8081/repository/RaedRepo/'
-
         SONAR_HOST_URL = 'http://192.168.33.3:9000'
         SONAR_TOKEN = 'sqp_ac4e7107d10c6b89a836534e09956899eda9eef7'
     }
@@ -37,7 +35,7 @@ pipeline {
                 url: 'https://github.com/K-raed/esp'
             }   
         }
-        stage('SONARQUBE'){
+        stage('test SONARQUBE'){
         steps{
             script{
                 // Configure SonarQube
@@ -71,8 +69,6 @@ pipeline {
                 }
             }
         } 
-    
-
         stage('NEXUS') {
             steps {
                 script {
@@ -96,7 +92,6 @@ pipeline {
         }
     }
 
-    
     post {
         always {
             echo 'Pipeline completed.'
