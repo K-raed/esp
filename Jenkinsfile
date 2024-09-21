@@ -43,6 +43,7 @@ pipeline {
                     withSonarQubeEnv('sonar') {
                         sh"${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=proj1 \
+                            -Dsonar.organization=sonarsource-cfamily-examples \        
                             -Dsonar.sources=. \
                             -Dsonar.host.url=${SONAR_HOST_URL} \
                             -Dsonar.login=${SONAR_TOKEN}"
