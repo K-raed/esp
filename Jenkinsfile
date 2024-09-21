@@ -36,21 +36,7 @@ pipeline {
                 url: 'https://github.com/K-raed/esp'
             }   
         }
-        stage('SONARQUBE'){
-        steps{
-            script{
-                // Configure SonarQube
-                    def scannerHome = tool 'sonar'
-                    withSonarQubeEnv('sonar') {
-                        sh "${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=proj1 \
-                            -Dsonar.sources=. \
-                            -Dsonar.host.url=${SONAR_HOST_URL} \
-                            -Dsonar.login=${SONAR_TOKEN}"
-                    }
-                }
-             }
-         }
+        
          stage('Run Container') {
             steps {
                 script {
@@ -70,7 +56,21 @@ pipeline {
             }
         } 
     
-
+        stage('SONARQUBE'){
+        steps{
+            script{
+                // Configure SonarQube
+                    def scannerHome = tool 'sonar'
+                    withSonarQubeEnv('sonar') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=proj1 \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=${SONAR_HOST_URL} \
+                            -Dsonar.login=${SONAR_TOKEN}"
+                    }
+                }
+             }
+         }
         stage('NEXUS') {
             steps {
                 script {
