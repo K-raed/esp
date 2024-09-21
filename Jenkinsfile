@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     environment {
         IDF_PATH = '/home/raed/esp/esp-idf'
         IDF_TOOLS_PATH = '/home/raed/.espressif'
@@ -35,20 +36,20 @@ pipeline {
                 url: 'https://github.com/K-raed/esp'
             }   
         }
-        stage('test SONARQUBE'){
+        stage('SONARQUBE'){
         steps{
             script{
                 // Configure SonarQube
                     def scannerHome = tool 'sonar'
                     withSonarQubeEnv('sonar') {
-                        sh"${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=proj1 \      
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=proj1 \
                             -Dsonar.sources=. \
                             -Dsonar.host.url=${SONAR_HOST_URL} \
                             -Dsonar.login=${SONAR_TOKEN}"
-                     }
-                  }
-            }
+                    }
+                }
+             }
          }
          stage('Run Container') {
             steps {
@@ -68,6 +69,8 @@ pipeline {
                 }
             }
         } 
+    
+
         stage('NEXUS') {
             steps {
                 script {
@@ -91,6 +94,7 @@ pipeline {
         }
     }
 
+    
     post {
         always {
             echo 'Pipeline completed.'
