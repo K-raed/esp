@@ -47,7 +47,6 @@ pipeline {
                             -Dsonar.sources=. \
                             -Dsonar.host.url=${SONAR_HOST_URL} \
                             -Dsonar.login=${SONAR_TOKEN}
-                            -Dsonar.cxx.build-wrapper-output=bw-output
                             '''
                     }
             }
