@@ -41,13 +41,15 @@ pipeline {
                 // Configure SonarQube
                     def scannerHome = tool 'sonar'
                     withSonarQubeEnv('sonar') {
-                        sh "build-wrapper-linux-x86-64 --out-dir bw-output ninja
+                        sh '''
+                            build-wrapper-linux-x86-64 --out-dir bw-output ninja
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=proj1 \
                             -Dsonar.sources=. \
                             -Dsonar.host.url=${SONAR_HOST_URL} \
                             -Dsonar.login=${SONAR_TOKEN}
-                            -Dsonar.cxx.build-wrapper-output=bw-output"
+                            -Dsonar.cxx.build-wrapper-output=bw-output
+                            '''
                     }
             }
             
