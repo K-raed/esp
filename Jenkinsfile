@@ -42,7 +42,6 @@ pipeline {
                     def scannerHome = tool 'sonar'
                     withSonarQubeEnv('sonar') {
                         sh '''
-                            build-wrapper-linux-x86-64 --out-dir bw-output ninja
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=proj1 \
                             -Dsonar.sources=. \
