@@ -11,24 +11,17 @@ pipeline {
     
     stages {
         
-        stage('Clear Container') {
+        stage('Clean Container & Workspace') {
             steps {
                 script {
                     sh'''
                      docker rm ESPcontainer -f
-                     '''
-                }
-            }
-        } 
-        stage('Clean Workspace') {
-            steps {
-                script {
-                    sh'''
                      sudo rm -rf ./*
                      '''
                 }
             }
         } 
+        
         stage('GIT') {
             steps {
                 echo 'Pulling from GIT';
@@ -87,7 +80,7 @@ pipeline {
             steps {
                 script {
                   sh '''
-                    mosquitto_pub -h 07bfd16103b24e65b1143ae311bf7a31.s1.eu.hivemq.cloud -p 8883 -u raedkorbi -P @eNRri#DvGv4Ah9 -t fota -m 'firmware is ready to upload'
+                    mosquitto_pub -h ceb0a78c.ala.eu-central-1.emqxsl.com -p 8883 -u raedkorbi -P @eNRri#DvGv4Ah9 -t fota -m 'firmware is ready to upload'
                     '''  
                 }
             }
