@@ -10,7 +10,6 @@ pipeline {
     }
     
     stages {
-        
         stage('Clean Container & Workspace') {
             steps {
                 script {
