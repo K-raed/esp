@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    
     environment {
         IDF_PATH = '/home/raed/esp/esp-idf'
         IDF_TOOLS_PATH = '/home/raed/.espressif'
