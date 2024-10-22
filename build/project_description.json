@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "mqtt_ssl",
-    "project_version":    "1",
+    "project_version":    "4f9785a-dirty",
     "project_path":       "/home/raed/esp/ssl2",
     "idf_path":           "/home/raed/esp/esp-idf",
     "build_dir":          "/home/raed/esp/ssl2/build",
