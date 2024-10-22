@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     sh'''
-                     docker run -itd --name ESPcontainer -v ~/workspace/artifact-test:/project espressif/idf:release-v5.0
+                     docker run -itd --name ESPcontainer -v ~/workspace/esp_master:/project espressif/idf:release-v5.0
                     '''
                 }
             }
