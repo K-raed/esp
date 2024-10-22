@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     sh'''
-                     docker run -itd --name ESPcontainer -v ~/workspace/artifact-test:/project espressif/idf:release-v5.0
+                     docker run -itd --name ESPcontainer -v ~/workspace/esp_master:/project espressif/idf:release-v5.0
                     '''
                 }
             }
@@ -83,7 +83,7 @@ pipeline {
                 }
             }
         }
-                stage('Ngrok Tunnel') {
+              /*  stage('Ngrok Tunnel') {
             steps {
                 script {
                     // Start ngrok tunnel (e.g., for exposing a local service running on port 80)
@@ -96,7 +96,7 @@ pipeline {
                     sleep time: 5, unit: 'MINUTES'
                 }
             }
-        }
+        }*/
     }
 
     post {
