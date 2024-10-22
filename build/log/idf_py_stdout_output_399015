@@ -39,7 +39,7 @@ Processing 2 dependencies:
 -- Found Threads: TRUE  
 -- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
 -- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success
--- App "mqtt_ssl" version: 4f9785a-dirty
+-- App "mqtt_ssl" version: ccbac84-dirty
 -- Adding linker script /home/raed/esp/ssl2/build/esp-idf/esp_system/ld/memory.ld
 -- Adding linker script /home/raed/esp/ssl2/build/esp-idf/esp_system/ld/sections.ld.in
 -- Adding linker script /home/raed/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
