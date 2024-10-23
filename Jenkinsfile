@@ -68,8 +68,8 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'nexus-credentials-id', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                         sh '''
                         docker exec ESPcontainer sh -c "curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
-                            --upload-file /project/build/blink.bin \
-                            ${NEXUS_URL}blink.bin"
+                            --upload-file /project/build/mqtt_ssl.bin \
+                            ${NEXUS_URL}mqtt_ssl.bin"
                         '''
                 }       }
             }
