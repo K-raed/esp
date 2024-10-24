@@ -92,6 +92,7 @@ pipeline {
                     nohup ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
                     sleep 300
                     killall ngrok
+                    ^c
                     '''
                     // Adding a delay to keep the tunnel running (e.g., wait for 5 minutes)
                     echo 'Waiting for 5 minutes to keep the tunnel open...'
