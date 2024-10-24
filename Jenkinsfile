@@ -90,10 +90,11 @@ pipeline {
                     sh '''
                     ngrok config add-authtoken 2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55
                     nohup ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
+                    sleep 300
+                    killall ngrok
                     '''
                     // Adding a delay to keep the tunnel running (e.g., wait for 5 minutes)
                     echo 'Waiting for 5 minutes to keep the tunnel open...'
-                    sleep time: 5, unit: 'MINUTES'
                 }
             }
         }
