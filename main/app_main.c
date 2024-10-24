@@ -61,10 +61,10 @@ static void mqtt_event_handler_cb(void *handler_args, esp_event_base_t base, int
             ESP_LOGI(TAG, "Received data:");
             ESP_LOGI(TAG, "Topic: %.*s", event->topic_len, event->topic);
             ESP_LOGI(TAG, "Message: %.*s", event->data_len, event->data);
-            if(strcmp(event->data, "firmware is ready to upload")==0){
+          /*  if(strcmp(event->data, "firmware is ready to upload")==0){
             vardelay = 100 ;
             }
-            else{ vardelay = 2000 ; }
+            else{ vardelay = 2000 ; }*/
             break;
         }
         case MQTT_EVENT_DISCONNECTED:
