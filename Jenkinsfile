@@ -8,7 +8,7 @@ pipeline {
         SONAR_TOKEN = 'sqp_ac4e7107d10c6b89a836534e09956899eda9eef7'
     }
     
-    stages {
+    stages {/*
         stage('Clean Container & Workspace') {
             steps {
                 script {
@@ -82,7 +82,7 @@ pipeline {
                     '''  
                 }
             }
-        }
+        }*/
                 stage('Ngrok Tunnel') {
             steps {
                 script {
@@ -92,7 +92,6 @@ pipeline {
                     ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
                     sleep 5
                     killall ngrok
-                    ^c
                     '''
                     // Adding a delay to keep the tunnel running (e.g., wait for 5 minutes)
                     echo 'Waiting for 5 minutes to keep the tunnel open...'
