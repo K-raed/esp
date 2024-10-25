@@ -88,10 +88,10 @@ pipeline {
                 script {
                     // Start ngrok tunnel (e.g., for exposing a local service running on port 80)
                     sh '''
-                    ngrok config add-authtoken 2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55
-                    ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
-                    sleep 5
-                    killall ngrok
+                    docker rm ngrok -f
+                    docker run -itd --name ngrok -e NGROK_AUTHTOKEN=2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55 ngrok/ngrok http 8081 --url=ghost-holy-radically.ngrok-free.app 
+                    sleep 300
+                    
                     '''
                     // Adding a delay to keep the tunnel running (e.g., wait for 5 minutes)
                     echo 'Waiting for 5 minutes to keep the tunnel open...'
