@@ -8,7 +8,7 @@ pipeline {
         SONAR_TOKEN = 'sqp_ac4e7107d10c6b89a836534e09956899eda9eef7'
     }
     
-    stages {/*
+    stages {
         stage('Clean Container & Workspace') {
             steps {
                 script {
@@ -82,14 +82,14 @@ pipeline {
                     '''  
                 }
             }
-        }*/
-                stage('Ngrok Tunnel') {
+        }
+                stage('Ngrok 5min Tunnel') {
             steps {
                 script {
                     // Start ngrok in the background and get its process ID (PID)
                     def ngrokPid = sh(script: 'ngrok http --url=ghost-holy-radically.ngrok-free.app 8081 & echo $!', returnStdout: true).trim()
                    
-                    sleep(30)
+                    sleep(300)
 
                     sh "kill -9 ${ngrokPid}"
                     echo "Ngrok tunnel closed."
