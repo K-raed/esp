@@ -85,22 +85,12 @@ pipeline {
         }*/
                 stage('Ngrok Tunnel') {
             steps {
-              /*  script {
-                    // Start ngrok tunnel (e.g., for exposing a local service running on port 80)
-                    echo 'Waiting for 5 minutes to keep the tunnel open...'
-                    sh '''
-                    ngrok config add-authtoken 2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55
-                    ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
-                    '''
-                    }*/
                 script {
                     // Start ngrok in the background and get its process ID (PID)
                     def ngrokPid = sh(script: 'ngrok http --url=ghost-holy-radically.ngrok-free.app 8081 & echo $!', returnStdout: true).trim()
-
-                    // Wait for the tunnel to be open for 30 seconds (adjust as needed)
+                   
                     sleep(30)
 
-                    // Terminate the ngrok process using its PID
                     sh "kill -9 ${ngrokPid}"
                     echo "Ngrok tunnel closed."
                 }
