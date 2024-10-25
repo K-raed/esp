@@ -89,7 +89,7 @@ pipeline {
                     // Start ngrok tunnel (e.g., for exposing a local service running on port 80)
                     sh '''
                     ngrok config add-authtoken 2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55
-                    nohup ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
+                    ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
                     sleep 5
                     killall ngrok
                     ^c
