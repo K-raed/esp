@@ -90,7 +90,7 @@ pipeline {
                     sh '''
                     ngrok config add-authtoken 2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55
                     nohup ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
-                    sleep 50
+                    sleep 5
                     killall ngrok
                     ^c
                     '''
