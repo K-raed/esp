@@ -89,7 +89,7 @@ pipeline {
                     // Start ngrok tunnel (e.g., for exposing a local service running on port 80)
                     sh '''
                     docker rm ngrok -f
-                    docker run -it --name ngrok -e NGROK_AUTHTOKEN=2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55 ngrok/ngrok http 8081 --url=ghost-holy-radically.ngrok-free.app 
+                    docker run -it -e --name ngrok NGROK_AUTHTOKEN=2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55 ngrok/ngrok http 8081 --url=ghost-holy-radically.ngrok-free.app 
                     sleep 120
                     
                     '''
