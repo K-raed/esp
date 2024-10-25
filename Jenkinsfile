@@ -91,6 +91,8 @@ pipeline {
                     sh '''
                     ngrok config add-authtoken 2kcFupvZU3V9fh30ECuIu6DHwtm_58PKZts6WsFfbShV35g55
                     timeout 30s ngrok http --url=ghost-holy-radically.ngrok-free.app 8081
+                    '''
+                    sh ''' 
                     killall ngrok
                     exit
                     '''
