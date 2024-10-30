@@ -167,6 +167,7 @@ static void mqtt_event_handler_cb(void *handler_args, esp_event_base_t base, int
                 //char ota_url[128] = {0};
                 //strncpy(ota_url, event->data, MIN(event->data_len, sizeof(ota_url) - 1));
                 ESP_LOGI(TAG, "Initiating OTA");
+                delay(5000);
                 xTaskCreate(&simple_ota_example_task, "ota_example_task", 8192, NULL, 5, NULL);                
                 //simple_ota_example_task();
             }
