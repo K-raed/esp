@@ -1,0 +1,45 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d751c: app_main at /home/raed/esp/ota-mqtt-blink-test/build/../main/simple_ota_example.c:210 (discriminator 1)
+[0m
+[0;33m--- 0x4008910b: _esp_error_check_failed at /home/raed/esp/esp-idf/components/esp_system/esp_err.c:50
+[0m
+[0;33m--- 0x400817d6: panic_abort at /home/raed/esp/esp-idf/components/esp_system/panic.c:466
+0x40089115: esp_system_abort at /home/raed/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40090911: abort at /home/raed/esp/esp-idf/components/newlib/abort.c:38
+0x4008910b: _esp_error_check_failed at /home/raed/esp/esp-idf/components/esp_system/esp_err.c:50
+0x400d751c: app_main at /home/raed/esp/ota-mqtt-blink-test/build/../main/simple_ota_example.c:210 (discriminator 1)
+0x401714cf: main_task at /home/raed/esp/esp-idf/components/freertos/app_startup.c:208
+0x40089c21: vPortTaskWrapper at /home/raed/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400812c4: cache_ll_l1_get_enabled_bus at /home/raed/esp/esp-idf/components/hal/esp32/include/hal/cache_ll.h:183 (discriminator 2)
+ (inlined by) do_multicore_settings at /home/raed/esp/esp-idf/components/esp_system/port/cpu_start.c:334 (discriminator 2)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 66aa870cb63682755a8db50755c331b5b0509e473d7b09181c08ff7431015180[0m
+[0;33m--- 0x400d6fcf: uart_tcsetattr at /home/raed/esp/esp-idf/components/vfs/vfs_uart.c:659
+[0m
+[0;33m--- 0x40089623: xQueueGenericSend at /home/raed/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1065
+[0m
+[0;33m--- 0x40081eca: esp_ptr_in_diram_dram at /home/raed/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:70
+ (inlined by) dram_alloc_to_iram_addr at /home/raed/esp/esp-idf/components/heap/heap_caps.c:74
+0x4008962d: xQueueGenericSend at /home/raed/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1076
+0x4008ffd2: ieee80211_ampdu_reorder at ??:?
+0x40089623: xQueueGenericSend at /home/raed/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1065
+0x400d6fcf: uart_tcsetattr at /home/raed/esp/esp-idf/components/vfs/vfs_uart.c:659
+0x40165e6b: _Bfree at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdlib/mprec.c:143
+0x4008963d: xQueueGenericSend at /home/raed/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1093 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 66aa870cb63682755a8db50755c331b5b0509e473d7b09181c08ff7431015180[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400812c4: cache_ll_l1_get_enabled_bus at /home/raed/esp/esp-idf/components/hal/esp32/include/hal/cache_ll.h:183 (discriminator 2)
+ (inlined by) do_multicore_settings at /home/raed/esp/esp-idf/components/esp_system/port/cpu_start.c:334 (discriminator 2)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 66aa870cb63682755a8db50755c331b5b0509e473d7b09181c08ff7431015180[0m
+[0m

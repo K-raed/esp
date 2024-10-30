@@ -1,26 +1,54 @@
 menu "Example Configuration"
 
-    config BROKER_URI
-        string "Broker URL"
-        default "mqtts://mqtt.eclipseprojects.io:8883"
+    config EXAMPLE_FIRMWARE_UPGRADE_URL
+        string "firmware upgrade url endpoint"
+        default "https://192.168.0.3:8070/hello_world.bin"
         help
-            URL of an mqtt broker which this example connects to.
+            URL of server which hosts the firmware
+            image.
 
-    config BROKER_CERTIFICATE_OVERRIDE
-        string "Broker certificate override"
-        default ""
+    config EXAMPLE_USE_CERT_BUNDLE
+        bool "Enable certificate bundle"
+        default y
+        depends on MBEDTLS_CERTIFICATE_BUNDLE
         help
-            Please leave empty if broker certificate included from a textfile; otherwise fill in a base64 part of PEM
-            format certificate
+            Enable trusted root certificate bundle. This approach allows to have
+            OTA updates functional with any public server without requirement
+            to explicitly add its server certificate.
 
-    config BROKER_CERTIFICATE_OVERRIDDEN
+    config EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
         bool
-        default y if BROKER_CERTIFICATE_OVERRIDE != ""
+        default y if EXAMPLE_FIRMWARE_UPGRADE_URL = "FROM_STDIN"
 
-    config BROKER_BIN_SIZE_TO_SEND
-        # This option is not visible and is used only to set parameters for example tests
-        # Here we configure the data size to send and to be expected in the python script
-        int
-        default 20000
+    config EXAMPLE_SKIP_COMMON_NAME_CHECK
+        bool "Skip server certificate CN fieldcheck"
+        default n
+        help
+            This allows you to skip the validation of OTA server certificate CN field.
 
+    config EXAMPLE_FIRMWARE_UPGRADE_BIND_IF
+        bool "Support firmware upgrade bind specified interface"
+        default n
+        help
+            This allows you to bind specified interface in OTA example.
+
+    choice EXAMPLE_FIRMWARE_UPGRADE_BIND_IF_TYPE
+        prompt "Choose OTA data bind interface"
+        default EXAMPLE_FIRMWARE_UPGRADE_BIND_IF_STA
+        depends on EXAMPLE_FIRMWARE_UPGRADE_BIND_IF
+        help
+            Select which interface type of OTA data go through.
+
+        config EXAMPLE_FIRMWARE_UPGRADE_BIND_IF_STA
+            bool "Bind wifi station interface"
+            depends on EXAMPLE_CONNECT_WIFI
+            help
+                Select wifi station interface to pass the OTA data.
+
+        config EXAMPLE_FIRMWARE_UPGRADE_BIND_IF_ETH
+            bool "Bind ethernet interface"
+            depends on EXAMPLE_CONNECT_ETHERNET
+            help
+                Select ethernet interface to pass the OTA data.
+    endchoice
 endmenu
