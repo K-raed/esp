@@ -1,4 +1,4 @@
-# Install script for directory: /home/raed/esp/ota-mqtt-blink-test/main
+# Install script for directory: /home/raed/esp/ssl2+blink/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
