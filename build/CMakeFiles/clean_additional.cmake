@@ -1,8 +1,6 @@
 # Additional clean files
 
 file(REMOVE_RECURSE
-  "blink_mqtt_ota.bin"
-  "blink_mqtt_ota.map"
   "bootloader/bootloader.bin"
   "bootloader/bootloader.elf"
   "bootloader/bootloader.map"
@@ -17,6 +15,8 @@ file(REMOVE_RECURSE
   "flasher_args.json"
   "ldgen_libraries"
   "ldgen_libraries.in"
+  "mqtt_ssl.bin"
+  "mqtt_ssl.map"
   "project_elf_src_esp32.c"
   "x509_crt_bundle.S"
 )

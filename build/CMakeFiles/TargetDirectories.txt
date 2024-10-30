@@ -14,9 +14,9 @@
 /home/raed/esp/ssl2+blink/build/CMakeFiles/install.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/bootloader.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/list_install_components.dir
-/home/raed/esp/ssl2+blink/build/CMakeFiles/blink_mqtt_ota.elf.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/gen_project_binary.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/app.dir
+/home/raed/esp/ssl2+blink/build/CMakeFiles/mqtt_ssl.elf.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/uf2.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/erase_flash.dir
 /home/raed/esp/ssl2+blink/build/CMakeFiles/uf2-app.dir

@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: blink_mqtt_ota
+# Project: mqtt_ssl
 # Configuration: 
 # =============================================================================
 # =============================================================================
@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER__blink_mqtt_ota.2eelf
+rule ASM_COMPILER__mqtt_ssl.2eelf
   depfile = $DEP_FILE
   deps = gcc
   command = /home/raed/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,7 +32,7 @@ rule ASM_COMPILER__blink_mqtt_ota.2eelf
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__blink_mqtt_ota.2eelf
+rule C_COMPILER__mqtt_ssl.2eelf
   depfile = $DEP_FILE
   deps = gcc
   command = /home/raed/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -42,7 +42,7 @@ rule C_COMPILER__blink_mqtt_ota.2eelf
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__blink_mqtt_ota.2eelf
+rule CXX_EXECUTABLE_LINKER__mqtt_ssl.2eelf
   command = $PRE_LINK && /home/raed/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-g++  $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
