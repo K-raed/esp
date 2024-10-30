@@ -83,13 +83,13 @@ pipeline {
                 }
             }
         }
-                stage('Ngrok 5min Tunnel') {
+                stage('Ngrok 3min Tunnel') {
             steps {
                 script {
                     // Start ngrok in the background and get its process ID (PID)
                     def ngrokPid = sh(script: 'ngrok http --url=ghost-holy-radically.ngrok-free.app 8081 & echo $!', returnStdout: true).trim()
                    
-                    sleep(300)
+                    sleep(180)
 
                     sh "kill -9 ${ngrokPid}"
                     echo "Ngrok tunnel closed."
