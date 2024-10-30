@@ -4,6 +4,6 @@ cmake_minimum_required(VERSION 3.16)
 
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(blink_mqtt_ota)
+project(mqtt_ssl)
 
-target_add_binary_data(blink_mqtt_ota.elf "emqxsl-ca.crt" TEXT)
+target_add_binary_data(mqtt_ssl.bin.elf "emqxsl-ca.crt" TEXT)
