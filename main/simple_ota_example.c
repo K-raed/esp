@@ -37,7 +37,7 @@ static const char *bind_interface_name = EXAMPLE_NETIF_DESC_STA;
 #endif
 
 #define BLINK_GPIO 23
-short vardelay = 1000 ;
+short vardelay = 300 ;
 static const char *TAG = "FOTA MQTT TEST CODE";
 #define OTA_URL_SIZE 256
 
