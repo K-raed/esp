@@ -167,9 +167,9 @@ static void mqtt_event_handler_cb(void *handler_args, esp_event_base_t base, int
                 //char ota_url[128] = {0};
                 //strncpy(ota_url, event->data, MIN(event->data_len, sizeof(ota_url) - 1));
                 ESP_LOGI(TAG, "Initiating OTA");
-                vTaskDelay(5000 / portTICK_PERIOD_MS);  // Delay for 500 ms
+                vTaskDelay(5000 / portTICK_PERIOD_MS);  // Delay for 5s
                 xTaskCreate(&simple_ota_example_task, "ota_example_task", 8192, NULL, 5, NULL);                
-                //simple_ota_example_task();
+                
             }
             break;
         }
@@ -215,7 +215,7 @@ void app_main(void)
 #endif
     mqtt_app_start();
     blink_app_start();
-    //xTaskCreate(&simple_ota_example_task, "ota_example_task", 8192, NULL, 5, NULL);
+    
 }
 
 
