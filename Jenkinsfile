@@ -105,6 +105,13 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
+            publishHTML(target: [
+                allowMissing: false,
+                keepAll: true,
+                reportDir: '.',
+                reportFiles: 'flawfinder-report.html',
+                reportName: 'Flawfinder Report'
+            ])
         }
         success {
             echo 'Pipeline succeeded.'
