@@ -46,7 +46,11 @@ pipeline {
                 }
             }
         } 
-    
+        stage('Flawfinder') {
+            steps {
+                sh 'flawfinder --quiet main > flawfinder-report.html'
+            }
+        }
         stage('SONARQUBE'){
         steps{
             script{
