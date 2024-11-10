@@ -122,7 +122,7 @@ pipeline {
             ])
             publishHTML (target: [
                 reportDir: '.',
-                reportFiles: 'cppcheck',
+                reportFiles: 'cppcheck.xml',
                 reportName: 'cpp report'
             ])
         }
