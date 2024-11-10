@@ -51,6 +51,14 @@ pipeline {
                 sh 'flawfinder --quiet --html main > flawfinder-report.html'
             }
         }
+        stage('cpp check') {
+            steps {
+               // sh 'splint -weak +strict -preproc main/simple_ota_example.c'
+                sh '''
+                cppcheck --enable=all main 2> cppcheck.xml
+                ''' 
+            }
+        }
         stage('SONARQUBE'){
         steps{
             script{
@@ -111,6 +119,11 @@ pipeline {
                 reportDir: '.',
                 reportFiles: 'flawfinder-report.html',
                 reportName: 'Flawfinder Report'
+            ])
+            publishHTML (target: [
+                reportDir: '.',
+                reportFiles: 'cppcheck',
+                reportName: 'cpp report'
             ])
         }
         success {
