@@ -53,10 +53,7 @@ pipeline {
         }
         stage('Cppcheck') {
             steps {
-                sh '''
-                cppcheck --enable=all --xml-version=2 main 2> cppcheck.xml
-                xsltproc -o <cppcheck.xml> cppcheck.html
-                ''' 
+                sh 'cppcheck --enable=all main 2> cppcheck.html'
             }
         }
         stage('SONARQUBE'){
