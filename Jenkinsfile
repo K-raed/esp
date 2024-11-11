@@ -55,7 +55,9 @@ pipeline {
             steps {
                // sh 'splint -weak +strict -preproc main/simple_ota_example.c'
                 sh '''
-                cppcheck --enable=all main 2> cppcheck.xml
+                cppcheck --enable=all --xml-version=2 main 2> cppcheck_results.xml
+                xsltproc cppcheck-htmlreport.xsl cppcheck_results.xml > cppcheck_report.html
+
                 ''' 
             }
         }
@@ -122,7 +124,7 @@ pipeline {
             ])
             publishHTML (target: [
                 reportDir: '.',
-                reportFiles: 'cppcheck.xml',
+                reportFiles: 'cppcheck_report.html',
                 reportName: 'cpp report'
             ])
         }
