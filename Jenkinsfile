@@ -51,12 +51,11 @@ pipeline {
                 sh 'flawfinder --quiet --html main > flawfinder-report.html'
             }
         }
-        stage('cpp check') {
+        stage('Cppcheck') {
             steps {
-               // sh 'splint -weak +strict -preproc main/simple_ota_example.c'
                 sh '''
                 cppcheck --enable=all --xml-version=2 main 2> cppcheck.xml
-                xsltproc <cppcheck.xml> cppcheck.html
+                xsltproc -o <cppcheck.xml> cppcheck.html
                 ''' 
             }
         }
