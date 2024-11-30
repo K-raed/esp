@@ -27,6 +27,7 @@
 #include <string.h>
 
 
+
 #ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_BIND_IF
 /* The interface name value can refer to if_desc in esp_netif_defaults.h */
 #if CONFIG_EXAMPLE_FIRMWARE_UPGRADE_BIND_IF_ETH
