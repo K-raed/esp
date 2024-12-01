@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Pulling from GIT';
                 git branch: 'master',
-                url: 'https://github.com/K-raed/esp'
+                url: 'https://github.com/K-raed/esp.git'
             }   
         }
         
