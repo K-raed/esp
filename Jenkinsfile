@@ -10,7 +10,7 @@ pipeline {
 
     
     stages {
-        stage('Clean Container & Workspace') {
+      /*  stage('Clean Container & Workspace') {
             steps {
                 script {
                     sh'''
@@ -19,7 +19,7 @@ pipeline {
                      '''
                 }
             }
-        } 
+        } */
         
         stage('GIT') {
             steps {
