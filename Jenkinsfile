@@ -8,7 +8,6 @@ pipeline {
         SONAR_TOKEN = 'sqp_ac4e7107d10c6b89a836534e09956899eda9eef7'
     }
 
-    
     stages {
         stage('Clean Container & Workspace') {
             steps {
