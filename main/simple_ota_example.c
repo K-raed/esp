@@ -70,7 +70,7 @@ void blink_app_start(void) {
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
     while (1) {
         gpio_set_level(BLINK_GPIO, 1);// Set the GPIO high
-        vTaskDelay(vardelay*3 / portTICK_PERIOD_MS);  // Delay for 500 ms
+        vTaskDelay(vardelay / portTICK_PERIOD_MS);  // Delay for 500 ms
         gpio_set_level(BLINK_GPIO, 0);// Set the GPIO low
         vTaskDelay(vardelay / portTICK_PERIOD_MS);  // Delay for 500 ms
     }
