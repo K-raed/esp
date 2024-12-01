@@ -1,9 +1,0 @@
-[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyUSB0 115200[0m
-[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
-[0;33m--- 0x40080400: _init at ??:?
-[0m
-[0;33m--- 0x400812c4: cache_ll_l1_get_enabled_bus at /home/raed/esp/esp-idf/components/hal/esp32/include/hal/cache_ll.h:183 (discriminator 2)
- (inlined by) do_multicore_settings at /home/raed/esp/esp-idf/components/esp_system/port/cpu_start.c:334 (discriminator 2)
-[0m
-[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is a2a957467baca6f64e7bb99f51e5f3ecf28107cff8d95bc132f0392a7ed5ae35[0m
-[0m
