@@ -46,17 +46,7 @@ pipeline {
                 }
             }
         } 
-        stage('Flawfinder') {
-            steps {
-                sh 'flawfinder --quiet --html main > flawfinder-report.html'
-            }
-        }
-        stage('Cppcheck') {
-            steps {
-                sh 'cppcheck --enable=all main 2> cppcheck.html'
-            }
-        }
-        stage('SONARQUBE'){
+       stage('SONARQUBE'){
         steps{
             script{
                 // Configure SonarQube
@@ -71,6 +61,17 @@ pipeline {
                 }
              }
          }
+        stage('Flawfinder') {
+            steps {
+                sh 'flawfinder --quiet --html main > flawfinder-report.html'
+            }
+        }
+        stage('Cppcheck') {
+            steps {
+                sh 'cppcheck --enable=all main 2> cppcheck.html'
+            }
+        }
+ 
         stage('NEXUS') {
             steps {
                 script {
